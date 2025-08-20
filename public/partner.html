@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partner Dashboard — Adventure Triangle</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <div><strong>Partner Dashboard</strong></div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/login.html">Login</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </div>
+
+    <div class="notice small">Login as partner to access. (partner@at.com / partner123)</div>
+
+    <div class="section">
+      <h2>Onboard New Activity (5 Steps)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Step 1: Address</h3>
+          <label class="label">Line 1</label><input class="input" id="line1"/>
+          <label class="label">City</label><input class="input" id="city"/>
+          <label class="label">State</label><input class="input" id="state"/>
+          <label class="label">Country</label><input class="input" id="country"/>
+          <label class="label">Pincode</label><input class="input" id="pincode"/>
+        </div>
+        <div class="card">
+          <h3>Step 2: Details</h3>
+          <label class="label">Title</label><input class="input" id="title"/>
+          <label class="label">Description</label><textarea class="input" id="description"></textarea>
+        </div>
+        <div class="card">
+          <h3>Step 3: Type & Misc</h3>
+          <label class="label">Category</label><input class="input" id="category" placeholder="Trekking / Scuba / ..."/>
+          <label class="label">Difficulty</label>
+          <select id="difficulty" class="input"><option>Easy</option><option>Moderate</option><option>Hard</option></select>
+          <label class="label">Min Age</label><input class="input" id="minAge" type="number"/>
+          <label class="label">Max Group Size</label><input class="input" id="maxGroupSize" type="number"/>
+        </div>
+        <div class="card">
+          <h3>Step 4: Pricing</h3>
+          <label class="label">Price</label><input class="input" id="price" type="number"/>
+          <label class="label">Currency</label><input class="input" id="currency" value="USD"/>
+        </div>
+        <div class="card">
+          <h3>Step 5: Images</h3>
+          <label class="label">Image URLs (comma separated)</label>
+          <input class="input" id="images" placeholder="https://... , https://..."/>
+          <div style="margin-top:10px;"><button class="btn" onclick="submitActivity()">Submit Activity</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>My Activities</h2>
+      <div id="myActivities" class="grid"></div>
+    </div>
+
+    <div class="section">
+      <h2>Bank Details</h2>
+      <div class="card" style="max-width:520px;">
+        <label class="label">Account Holder</label><input class="input" id="accountHolder"/>
+        <label class="label">Account Number</label><input class="input" id="accountNumber"/>
+        <label class="label">IFSC</label><input class="input" id="ifsc"/>
+        <label class="label">Bank Name</label><input class="input" id="bankName"/>
+        <label class="label">Branch</label><input class="input" id="branch"/>
+        <div style="margin-top:10px;"><button class="btn" onclick="saveBank()">Save</button></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Certifications (Create)</h2>
+      <div class="card" style="max-width:520px;">
+        <label class="label">Title</label><input class="input" id="certTitle"/>
+        <label class="label">Description</label><textarea class="input" id="certDesc"></textarea>
+        <label class="label">Duration</label><input class="input" id="certDuration" placeholder="4 weeks"/>
+        <label class="label">Price</label><input class="input" id="certPrice" type="number"/>
+        <label class="label">Image URL</label><input class="input" id="certImage"/>
+        <div style="margin-top:10px;"><button class="btn" onclick="createCert()">Create Certification</button></div>
+      </div>
+      <div class="section">
+        <h3>My Certifications</h3>
+        <div id="myCerts" class="grid"></div>
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/common.js"></script>
+  <script src="/js/partner.js"></script>
+</body>
+</html>

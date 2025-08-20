@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Adventure Triangle</title>
+  <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <div><strong>Adventure Triangle</strong></div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/partner.html">Partner</a>
+        <a href="/admin.html">Admin</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Login</h2>
+      <div class="card" style="max-width:480px;">
+        <label class="label">Email</label>
+        <input id="email" class="input" placeholder="you@example.com"/>
+        <label class="label">Password</label>
+        <input id="password" class="input" type="password" placeholder="••••••••"/>
+        <div style="margin-top: 12px;">
+          <button class="btn" onclick="doLogin()">Login</button>
+          <span class="small">Try admin: admin@at.com / admin123 or partner: partner@at.com / partner123</span>
+        </div>
+        <div id="loginMsg" class="small" style="margin-top:8px;"></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/common.js"></script>
+  <script>
+    async function doLogin() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const res = await api('/api/auth/login', { method: 'POST', body: { email, password } });
+      document.getElementById('loginMsg').innerText = res.error || 'Logged in!';
+    }
+  </script>
+</body>
+</html>
